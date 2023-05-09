@@ -7,14 +7,14 @@ class CreateFraudlogixSettings extends SettingsMigration
     public function up(): void
     {
         $this->migrator->add('fraudlogix.enabled', false);
-        // $this->migrator->add('fraudlogix.url', '');
-        // $this->migrator->addEncrypted('fraudlogix.access_token', '');
+         $this->migrator->add('fraudlogix.qid', '');
+         $this->migrator->add('fraudlogix.cid', '');
     }
 
     public function down()
     {
         $this->migrator->delete('fraudlogix.enabled');
-        // $this->migrator->delete('fraudlogix.url');
-        // $this->migrator->delete('fraudlogix.access_token');
+        $this->migrator->delete('fraudlogix.qid');
+        $this->migrator->delete('fraudlogix.cid');
     }
 }

@@ -3,6 +3,7 @@
 namespace Astrogoat\Fraudlogix;
 
 use Helix\Lego\Apps\App;
+use Helix\Lego\Apps\Services\IncludeFrontendViews;
 use Helix\Lego\LegoManager;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -15,12 +16,10 @@ class FraudlogixServiceProvider extends PackageServiceProvider
         return $app
             ->name('fraudlogix')
             ->settings(FraudlogixSettings::class)
-            ->migrations([
-                __DIR__ . '/../database/migrations',
-                __DIR__ . '/../database/migrations/settings',
-            ])
-            ->backendRoutes(__DIR__.'/../routes/backend.php')
-            ->frontendRoutes(__DIR__.'/../routes/frontend.php');
+            ->migrations([__DIR__ . '/../database/migrations/settings'])
+            ->includeFrontendViews(function (IncludeFrontendViews $views) {
+                return $views->addToHead(['fraudlogix::script']);
+            });
     }
 
     public function registeringPackage()
@@ -32,6 +31,6 @@ class FraudlogixServiceProvider extends PackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        $package->name('fraudlogix')->hasConfigFile()->hasViews();
+        $package->name('fraudlogix')->hasViews();
     }
 }

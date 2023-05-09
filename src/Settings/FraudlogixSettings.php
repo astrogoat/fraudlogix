@@ -4,27 +4,35 @@ namespace Astrogoat\Fraudlogix\Settings;
 
 use Helix\Lego\Settings\AppSettings;
 use Illuminate\Validation\Rule;
-use Astrogoat\Fraudlogix\Actions\FraudlogixAction;
 
 class FraudlogixSettings extends AppSettings
 {
-    // public string $url;
+     public string $qid;
+     public string $cid;
 
     public function rules(): array
     {
         return [
-            // 'url' => Rule::requiredIf($this->enabled === true),
+             'qid' => Rule::requiredIf($this->enabled === true),
+             'cid' => Rule::requiredIf($this->enabled === true),
         ];
     }
 
-    // protected static array $actions = [
-    //     FraudlogixAction::class,
-    // ];
+    public function labels(): array
+    {
+        return [
+            'qid' => 'Account ID (qid)',
+            'cid' => 'Client ID (cid)',
+        ];
+    }
 
-    // public static function encrypted(): array
-    // {
-    //     return ['access_token'];
-    // }
+    public function help(): array
+    {
+        return [
+            'qid' => 'Provided by Fraudlogix',
+            'cid' => 'Provided by Fraudlogix',
+        ];
+    }
 
     public function description(): string
     {
