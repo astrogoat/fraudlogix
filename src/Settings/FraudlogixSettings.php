@@ -9,12 +9,14 @@ class FraudlogixSettings extends AppSettings
 {
      public string $qid;
      public string $cid;
+     public string $transaction_id;
 
     public function rules(): array
     {
         return [
              'qid' => Rule::requiredIf($this->enabled === true),
              'cid' => Rule::requiredIf($this->enabled === true),
+             'transaction_id' => ['nullable'],
         ];
     }
 
@@ -23,6 +25,7 @@ class FraudlogixSettings extends AppSettings
         return [
             'qid' => 'Account ID (qid)',
             'cid' => 'Client ID (cid)',
+            'transaction_id' => 'Transaction ID',
         ];
     }
 
@@ -31,6 +34,16 @@ class FraudlogixSettings extends AppSettings
         return [
             'qid' => 'Provided by Fraudlogix',
             'cid' => 'Provided by Fraudlogix',
+            'transaction_id' => 'If the provided transaction ID is found the query string, the value will passed along to Fraudlogix. <br>Example: use "irclickid" as the Transaction ID, then if a user visits a page with "?irclickid=12345" in the query string, then "12345" will be passed along to Fraudlogix.',
+        ];
+    }
+
+    public function hints(): array
+    {
+        return [
+            'qid' => '(required)',
+            'cid' => '(required)',
+            'transaction_id' => '(optional)',
         ];
     }
 

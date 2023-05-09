@@ -2,23 +2,30 @@
 
 namespace Astrogoat\Fraudlogix;
 
+use Astrogoat\Fraudlogix\Settings\FraudlogixSettings;
+
 class Fraudlogix
 {
-    public function publisherId(): ?string
+    public function affiliateId(): ?string
     {
         return request()->query('utm_content');
     }
 
+    public function transactionId(): ?string
+    {
+        return request()->query(resolve(FraudlogixSettings::class)->transaction_id);
+    }
+
 //    /**
-//     * Replace the `publisherId` method with this one if we
+//     * Replace the `affiliateId` method with this one if we
 //     * need to ping Fraudlogix on all subsequent request
 //     * after a user visit with the utm_content param.
 //     * @return string
 //     */
-//    public function publisherId(): string
+//    public function affiliateId(): string
 //    {
-//        $cacheKey = 'astrogoat:fraudlogix:' . strata_user_id() . ':publisherId';
-//        $tags = ['astrogoat', 'fraudlogix', 'publisherId'];
+//        $cacheKey = 'astrogoat:fraudlogix:' . strata_user_id() . ':affiliateId';
+//        $tags = ['astrogoat', 'fraudlogix', 'affiliateId'];
 //
 //        $utmContentQuery = request()->query('utm_content');
 //
