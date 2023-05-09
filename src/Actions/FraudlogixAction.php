@@ -1,14 +1,14 @@
 <?php
 
-namespace VendorName\Skeleton\Actions;
+namespace Astrogoat\Fraudlogix\Actions;
 
 use Helix\Lego\Apps\Actions\Action;
 
-class SkeletonAction extends Action
+class FraudlogixAction extends Action
 {
     public static function actionName(): string
     {
-        return 'Skeleton action name';
+        return 'Fraudlogix action name';
     }
 
     public static function run(): mixed

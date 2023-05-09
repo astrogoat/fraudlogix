@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Astrogoat\Fraudlogix\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FraudlogixCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'fraudlogix';
 
     public $description = 'My command';
 
