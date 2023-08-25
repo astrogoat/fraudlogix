@@ -2,12 +2,12 @@
 
 namespace Astrogoat\Fraudlogix;
 
+use Astrogoat\Fraudlogix\Settings\FraudlogixSettings;
 use Helix\Lego\Apps\App;
 use Helix\Lego\Apps\Services\IncludeFrontendViews;
 use Helix\Lego\LegoManager;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Astrogoat\Fraudlogix\Settings\FraudlogixSettings;
 
 class FraudlogixServiceProvider extends PackageServiceProvider
 {

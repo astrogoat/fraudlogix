@@ -7,9 +7,9 @@ use Illuminate\Validation\Rule;
 
 class FraudlogixSettings extends AppSettings
 {
-     public string $qid;
-     public string $cid;
-     public string $transaction_id;
+    public string $qid;
+    public string $cid;
+    public string $transaction_id;
 
     public function rules(): array
     {

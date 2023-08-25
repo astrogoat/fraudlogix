@@ -2,9 +2,9 @@
 
 namespace Astrogoat\Fraudlogix\Tests;
 
+use Astrogoat\Fraudlogix\FraudlogixServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Astrogoat\Fraudlogix\FraudlogixServiceProvider;
 
 class TestCase extends Orchestra
 {
